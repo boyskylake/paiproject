@@ -5,7 +5,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-  <link rel="stylesheet" href="style.css"> </head>
+  <link rel="stylesheet" href="style.css"> 
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  
+</head>
 
 <body class="h-25 w-100">
   <?php include 'header.php'; ?>
@@ -16,7 +19,25 @@
         <?php include 'sidebarleft.php'; 
               include 'include/config.php';
 
-              $sql = "SELECT * FROM `td_book`";
+               ini_set('display_errors', 1);
+              error_reporting(~0);
+              $strKeyword = null;
+              if(isset($_POST["txtKeyword"]))
+              {
+                $strKeyword = $_POST["txtKeyword"];
+                $sql = "SELECT * FROM `td_book` WHERE bo_name LIKE '%".$strKeyword."%'";
+              }
+              elseif(isset($_POST["cate"]))
+              {
+                $cate = $_POST["cate"];
+                $sql = "SELECT * FROM `td_book` WHERE bo_cate LIKE '%".$cate."%'";
+              }
+              else{
+              $sql = "SELECT * FROM `td_book` WHERE bo_name LIKE '%".$strKeyword."%' OR bo_cate LIKE '%".$strKeyword."%'";
+
+              }
+              $namsct = $_SERVER['SCRIPT_NAME'];
+
               $query = mysqli_query($conn, $sql);
               
 
@@ -30,36 +51,50 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="row">
-                    <div class="col-md-11 text-right">
-                      <div class="btn-group text-nowrap w-25 m-2 p-2">
-                        <button class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">ประเภทหนังสือ</button>
-                        <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">000วิทยาการคอมพิวเตอร์ สารสนเทศและความรู้ทั่วไป
-                            <br> </a>
-                          <a class="dropdown-item" href="#">100ปรัชญา
-                            <br> </a>
-                          <a class="dropdown-item" href="#">200ศาสนา
-                            <br> </a>
-                          <a class="dropdown-item" href="#">300สังคมศาสตร์
-                            <br> </a>
-                          <a class="dropdown-item" href="#">400ภาษา
-                            <br> </a>
-                          <a class="dropdown-item" href="#">500วิทยาศาสตร์
-                            <br> </a>
-                          <a class="dropdown-item" href="#">600เทคโนโลยี
-                            <br> </a>
-                          <a class="dropdown-item" href="#">700ศิลปะนันทนาการ
-                            <br> </a>
-                            <a class="dropdown-item" href="#">800วรรณคดี
-                            <br> </a>
-                            <a class="dropdown-item" href="#">900ประวัติศาสตร์และภูมิศาสตร์
-                            <br> </a>
-                        </div>
-                      </div>
+                    <div class="col-md-5 text-center">
+                      <form name="frmSearch" method="post" action="<?php echo $namsct;?>">
+                      <input class="form-control" type="" name="txtKeyword" id="txtKeyword">
+                      <button class="btn btn-outline-primary" type="submit" value="Search">search</button>
+                      </form>
+                    </div>
+                    <div class="col-md-7 text-center">
+                      <!-- <div class="btn-group text-nowrap w-25 m-2 p-2"> -->
+                        <!-- <button class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">ประเภทหนังสือ</button> -->
+                        <!-- <div class="dropdown-menu"> -->
+                      <form name="frmSearch" method="post" action="<?php echo $namsct;?>">
+
+                        <select name="cate" class="btn btn-outline-primary">
+
+                          <option value="">ประเภทหนังสือ</option>
+                                  <option>จุลสาร</option>
+                                  <option>นิตยสาร</option>
+                                  <option>สารานุกรมไทย</option>
+                                  <option>ประชาคมอาเซียน</option>
+                                  <option>นวนิยาย</option>
+                                  <option>หนังสือวิจัย</option>
+                                  <option>หนังสือเยาวชน</option>
+                                  <option>หนังสือใบลาน</option>
+                                  <option>000วิทยาการคอมพิวเตอร์ สารสนเทศและความรู้ทั่วไป</option>
+                                  <option>100ปรัชญา</option>
+                                  <option>200ศาสนา</option>
+                                  <option>300สังคมศาสตร์</option>
+                                  <option>400ภาษา</option>
+                                  <option>500วิทยาศาสตร์</option>
+                                  <option>600เทคโนโลยี</option>
+                                  <option>700ศิลปะนันทนาการ</option>
+                                  <option>800วรรณคดี</option>
+                                  <option>900ประวัติศาสตร์และภูมิศาสตร์</option>
+                                </select>
+                                <!-- <br> -->
+                          <button class="btn btn-outline-primary" type="submit" value="Search">search</button>
+                      </form>
                     </div>
                   </div>
                 </div>
               </div>
+
+                    <br>
+                    <br>
               <div class="row">
                 <?php while ($row = mysqli_fetch_array($query)) {
                  ?>

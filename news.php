@@ -93,11 +93,23 @@
                     </div>
                   <div class="row my-2">
             <div class="text-center offset-md-2 col-md-4">
+              <?php 
+                if ($row['bo_amount'] == '0') { ?>
+                   
+                    <button class="btn btn-danger btn-lg" >ไม่มีหนังสือให้ยืม</button>
+            <?php  
+                }else{ 
+            ?>
+            
               <a class="btn btn-primary btn-lg" href="check.php?id=<?php echo $id; ?>">ทำการจอง</a>
+                  
+            <?php  
+                }
+
+               ?>
             </div>
             <div class="text-center m-0 offset-md-3 col-md-4">
-              <a class="btn btn-primary btn-lg text-center" href="#">ยกเลิก
-                <br> </a>
+              <a class="btn btn-primary btn-lg text-center" href="booking.php">ยกเลิก</a>
             </div>               
           </div>
           </div>

@@ -1,3 +1,12 @@
+<?php 
+session_start();
+  if($_SESSION['UserID'] != "")
+  {
+    header("location:addhistory.php");
+  }
+
+ ?>
+
 <!DOCTYPE html>
 <html>
 

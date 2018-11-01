@@ -20,8 +20,8 @@
             $sql = "DELETE FROM `td_book` WHERE bo_id = '$id'";
             $query = mysqli_query($conn, $sql);
             if ($query) {
-              echo "<script type='text/javascript'>";
-                  echo  "alert('ลบข้อมูลเรียบร้อย');";
+                  echo "<script type='text/javascript'>";
+                  echo "alert('ลบข้อมูลเรียบร้อย');";
                   echo "window.location='savebook.php';";
                   echo "</script>";
             }
@@ -72,10 +72,7 @@
             <div class="text-center col-md-2 offset-md-5">
               <a class="btn btn-primary text-center btn-lg" href="addbook.php">เพิ่มข้อมูล</a>
             </div>
-            <div class="text-center col-md-1">
-              <a class="btn btn-primary text-center btn-lg" href="managebook.php">ยืนยัน
-                <br> </a>
-            </div>
+            
           </div>
         </div>
       </div>

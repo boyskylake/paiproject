@@ -21,7 +21,9 @@
       
 
       session_destroy();
-      $porid = $_GET['porid'];
+      if (isset($_GET['porid'])) {
+        $porid = $_GET['porid'];
+      }
 
       if (isset($_POST['submit'])) {
 

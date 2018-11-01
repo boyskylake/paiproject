@@ -36,6 +36,9 @@
           <li class="nav-item">
             <a class="nav-link" href="search.php">รายการจอง</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="admin">เข้าสู่ระบบ เจ้าหน้าที่</a>
+          </li>
         </ul>
       </div>
     </div>

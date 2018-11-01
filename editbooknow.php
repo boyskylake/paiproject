@@ -52,7 +52,7 @@
                 if ($query) {
                   echo "<script type='text/javascript'>";
                   echo  "alert('เพิ่มข้อมูลเรียบร้อย');";
-                  echo "window.location='editbooknow.php';";
+                  echo "window.location='booknowuser.php?porid=".$numid."';";
                   echo "</script>";
                 }
 

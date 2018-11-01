@@ -12,7 +12,7 @@
               </li>
               <ul class="nav nav-pills flex-column">
                 <li class="nav-item">
-                  <a class="nav-link" href="booknow.php">บริการยืม – คืนหนังสือห้องสมุดชุมชน</a>
+                  <a class="nav-link" href="../booking.php">บริการยืม – คืนหนังสือห้องสมุดชุมชน</a>
                 </li>
               </ul>
             </ul>
