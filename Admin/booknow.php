@@ -125,7 +125,7 @@
               <?php } ?>
             </tbody>
           </table>
-          <div class="row m-2">
+         <!--  <div class="row m-2">
             <div class="offset-md-5 col-md-3">
               <a class="btn btn-primary text-center btn-lg" href="editbooknow.php">เพิ่มข้อมูล</a>
             </div>
@@ -133,7 +133,7 @@
               <a class="btn btn-primary text-center btn-lg" href="managebook.php">ยืนยัน
                 <br> </a>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
